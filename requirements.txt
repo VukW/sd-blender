@@ -6,3 +6,8 @@ numpy
 click
 einops
 tqdm
+clip
+pytorch-lightning
+-e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
+kornia
+-e git+https://github.com/openai/CLIP.git@main#egg=clip
