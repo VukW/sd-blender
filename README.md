@@ -57,3 +57,33 @@ Cat + bread:
 <img src="cat_bread_img2text2img.png" alt= "" height="320">
 
 
+# 3, Stable Diffusion Reimagine (UnCLIP). Img embeddings averaging (4 / 5)
+
+[UnCLIP](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip) is a new finetuned version of Stable Diffusion (24.03.2023), that provides a conditioned img2img generation.
+In our case, however, I use the following inputs:
+
+- empty (`""`) text prompt as text input;
+- averaging image embeddings (`(image1_embeddings + image2_embeddings) / 2`) as image input. 
+
+```shell
+python solution_unclip.py --device cpu --seed 1200 --steps 30 \
+gigachad.jpg shrek.png gigachad_shrek_unclip.png
+```
+
+Shrek + gigachad:
+
+<img src="shrek.png" alt= "" height="320"> <img src="gigachad.jpg" alt= "" height="320">
+
+=>
+
+<img src="gigachad_shrek_unclip.png" alt= "" height="320">
+
+
+Cat + bread:
+
+
+<img src="cat_yawning.jpg" alt= "" height="320"> <img src="bread.png" alt= "" height="320">
+
+=>
+
+<img src="cat_bread_unclip.png" alt= "" height="320">
