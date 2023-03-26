@@ -1,0 +1,8 @@
+omegaconf
+torch
+torchvision
+transformers
+numpy
+click
+einops
+tqdm
