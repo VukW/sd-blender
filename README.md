@@ -87,3 +87,27 @@ Cat + bread:
 =>
 
 <img src="cat_bread_unclip.png" alt= "" height="320">
+
+# 4, Stable Diffusion Reimagine (UnCLIP). Conditioning (img2) on latent (img1). 1/5
+
+Same as previous approach, however, having one difference. During image generation we are moving in some latent space, conditioning on input prompt / images. 
+Here I used latent representation of the first image, conditioning with second image: I expected it will move the latent vector to some "common" representation,
+that includes content from both images simultaneously. However, I was unsuccessful (maybe just a bug?)
+
+- empty (`""`) text prompt as text input;
+- latents (`vae.encode(image1)`) as initial latent vector;
+- image2 as image conditioning input 
+
+```shell
+python solution_unclip_latent.py --device cpu --seed 1200 --steps 30 \
+cat_yawning.jpg bread.png
+```
+
+Cat + bread:
+
+
+<img src="cat_yawning.jpg" alt= "" height="320"> <img src="bread.png" alt= "" height="320">
+
+=>
+
+<img src="cat_bread_unclip_latent.png" alt= "" height="320">
